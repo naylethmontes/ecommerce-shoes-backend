@@ -1,11 +1,17 @@
-import { url } from 'inspector';
+export default ({ env }) => {
+	const defaultPublicUrl =
+		env('NODE_ENV') === 'production'
+			? 'https://ecommerce-shoes-backend-2.onrender.com'
+			: `http://localhost:${env.int('PORT', 1337)}`;
 
-export default ({ env }) => ({
-	host: env('HOST', '0.0.0.0'),
-	port: env.int('PORT', 1337),
-	app: {
-		keys: env.array('APP_KEYS'),
-	},
+	return {
+		host: env('HOST', '0.0.0.0'),
+		port: env.int('PORT', 1337),
+		app: {
+			keys: env.array('APP_KEYS'),
+		},
 
-	url: env('PUBLIC_URL', 'https://ecommerce-shoes-backend-1.onrender.com'),
-});
+		// PUBLIC_URL can be explicitly set in .env; otherwise use sensible defaults
+		url: env('PUBLIC_URL', defaultPublicUrl),
+	};
+};
