@@ -7,15 +7,13 @@ export default ({ env }) => {
 	return {
 		host: env('HOST', '0.0.0.0'),
 		port: env.int('PORT', 1337),
+
+		proxy: env.bool('PROXY', env('NODE_ENV') === 'production'),
+
+		url: env('PUBLIC_URL', defaultPublicUrl),
+
 		app: {
 			keys: env.array('APP_KEYS'),
 		},
-
-		// Trust the reverse proxy (Render) so Strapi knows the original protocol
-		// and can set 'secure' cookies correctly when behind HTTPS.
-		proxy: env.bool('PROXY', env('NODE_ENV') === 'production'),
-
-		// PUBLIC_URL can be explicitly set in .env; otherwise use sensible defaults
-		url: env('PUBLIC_URL', defaultPublicUrl),
 	};
 };
