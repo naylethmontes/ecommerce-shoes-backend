@@ -15,8 +15,6 @@ export default [
 			},
 		},
 	},
-
-	'global::trust-proxy',
 	'strapi::favicon',
 	'strapi::public',
 ];
