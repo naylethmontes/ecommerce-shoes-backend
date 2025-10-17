@@ -1,5 +1,3 @@
-import { resolve } from 'path';
-
 export default [
 	'strapi::logger',
 	'strapi::errors',
@@ -17,9 +15,8 @@ export default [
 			},
 		},
 	},
+
+	'global::trust-proxy',
 	'strapi::favicon',
 	'strapi::public',
-	{
-		resolve: './src/middlewares/https-redirect',
-	},
 ];
