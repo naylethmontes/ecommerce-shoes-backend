@@ -14,7 +14,5 @@ export default ({ env }) => ({
 		keys: env.array('APP_KEYS', ['testKey1', 'testKey2']),
 	},
 
-	settings: {
-		trustProxy: true,
-	},
+	proxy: true,
 });
