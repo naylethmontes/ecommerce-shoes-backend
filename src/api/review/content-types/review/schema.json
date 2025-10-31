@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "comment": {
@@ -21,13 +21,17 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product.product",
-      "inversedBy": "reviews"
+      "inversedBy": "reviews",
+      "filterable": true,
+      "populate": true
     },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "reviews"
+      "inversedBy": "reviews",
+      "filterable": true,
+      "populate": true
     },
     "username": {
       "type": "string",
